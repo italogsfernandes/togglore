@@ -52,6 +52,7 @@ if __name__ == '__main__':
             actual, expected, running = client.diff(utils.DateRange.this_year_until_today(), include_running=True)
         else:
             actual, expected, running = client.diff(utils.DateRange.this_year(), include_running=True)
+        expected = expected - (client.cfg.balance_last_year.total_seconds()/(3600.0))
     elif args.command == 'thismonth':
         if args.untiltoday:
             actual, expected, running = client.diff(utils.DateRange.this_month_until_today(), include_running=True)
